@@ -23,14 +23,25 @@ public class Main {
         for(int i = 5; i < 30; i++) schedule [3][i] = true;
         for(int i = 44; i < 60; i++) schedule [3][i] = true;
         int period = 2;
-        while   (period <5){
-            System.out.println("Period: "+ period);
+        while   (period <5) {
+            System.out.println("Period: " + period);
             b.printPeriod(period);
             period++;
         }
-        b.printPeriod(4);
-        System.out.println(b.makeAppointment(2, 4, 22));
-        b.printPeriod(4);
+
+            //test cases 3
+
+            AppointmentBook c = new AppointmentBook(schedule);
+            for(int i = 25; i < 30; i++) schedule [2][i] = true;
+            for(int i = 3; i < 15; i++) schedule [3][i] = true;
+            for(int i = 41; i < 60; i++) schedule [3][i] = true;
+            for(int i = 27; i < 29; i++) schedule [4][i] = true;
+            for(int i = 44; i < 60; i++) schedule [4][i] = true;
+            c.printPeriod(period);
+
+
+        System.out.println(c.makeAppointment(2, 4, 22));
+
     }
 
 }
