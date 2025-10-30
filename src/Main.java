@@ -9,74 +9,71 @@ public class Main {
         int meetings = 0;
         File f = new File("Schedules.txt");
         Scanner s = new Scanner(f);
-        String schedule ="";
+        String schedule = "";
         while (s.hasNext()) {
             while (s.hasNextBoolean()) {
-    schedule += s.nextBoolean() + " ";
+                schedule += s.nextBoolean() + " ";
+            }
                 AppointmentBook a = new AppointmentBook(readSchedule(schedule));
 
                 if (a.makeAppointment(s.nextInt(), s.nextInt(), s.nextInt()))
                     meetings++;
             }
-
-        }
         schedule = "";
         return meetings;
-    }
-public static boolean[][] readSchedule(String lines) {
+        }
+
+
+    public static boolean[][] readSchedule(String lines) {
         Scanner s = new Scanner(lines);
-        boolean [][] schedule = new boolean[8][60];
+        boolean[][] schedule = new boolean[8][60];
         for (int i = 0; i < schedule.length; i++) {
-            for (int j = 0; j < schedule [i].length; j++) {
+            for (int j = 0; j < schedule[i].length; j++) {
                 schedule[i][j] = s.nextBoolean();
             }
         }
         return schedule;
-}
-
-    public static void main(String[] args) throws IOException {
-System.out.println(read());
-
-
-//        boolean[][] schedule = new boolean[8][60];
-//        AppointmentBook a = new AppointmentBook(schedule);
-//        //test cases 1
-//        for(int i = 10; i < 15; i++) schedule [2][i] = true;
-//        for(int i = 30; i < 45; i++) schedule [2][i] = true;
-//        for(int i = 50; i < 60; i++) schedule [2][i] = true;
-//        a.printPeriod(2);
-//
-//
-//
-//        //test cases 2
-//
-//        AppointmentBook b = new AppointmentBook(schedule);
-//        for(int i = 25; i < 30; i++) schedule [1][i] = true;
-//        for(int i = 0; i < 15; i++) schedule [2][i] = true;
-//        for(int i = 41; i < 60; i++) schedule [2][i] = true;
-//        for(int i = 5; i < 30; i++) schedule [3][i] = true;
-//        for(int i = 44; i < 60; i++) schedule [3][i] = true;
-//        int period = 2;
-//        while   (period <5) {
-//            System.out.println("Period: " + period);
-//            b.printPeriod(period);
-//            period++;
-//        }
-//
-//            //test cases 3
-//
-//            AppointmentBook c = new AppointmentBook(schedule);
-//            for(int i = 25; i < 30; i++) schedule [2][i] = true;
-//            for(int i = 3; i < 15; i++) schedule [3][i] = true;
-//            for(int i = 41; i < 60; i++) schedule [3][i] = true;
-//            for(int i = 27; i < 29; i++) schedule [4][i] = true;
-//            for(int i = 44; i < 60; i++) schedule [4][i] = true;
-//            c.printPeriod(period);
-//
-//
-//        System.out.println(c.makeAppointment(2, 4, 22));
-
     }
 
-}
+    public static void main(String[] args) throws IOException {
+//        System.out.println(read());
+
+
+        boolean[][] schedule = new boolean[8][60];
+//        AppointmentBook a = new AppointmentBook(schedule);
+//        //test cases 1
+//        for(int i = 10; i < 15; i++) schedule [1][i] = true;
+//        for(int i = 30; i < 45; i++) schedule [1][i] = true;
+//        for(int i = 50; i < 60; i++) schedule [1][i] = true;
+//        a.printPeriod(2);
+//        System.out.println(a.findFreeBlock(2,15));
+//        System.out.println(a.findFreeBlock(2,9));
+//        System.out.println(a.findFreeBlock(2,20));
+
+        //test cases 2
+
+
+        for(int i = 25; i < 30; i++) schedule [1][i] = true;
+        for(int i = 0; i < 15; i++) schedule [2][i] = true;
+        for(int i = 41; i < 60; i++) schedule [2][i] = true;
+        for(int i = 5; i < 30; i++) schedule [3][i] = true;
+        for(int i = 44; i < 60; i++) schedule [3][i] = true;
+        AppointmentBook b = new AppointmentBook(schedule);
+        int period = 2;
+        while   (period <5) {
+            System.out.println("Period: " + period);
+            b.printPeriod(period);
+            period++;
+        }
+   b.printPeriod(4);
+        System.out.println(b.makeAppointment(2,4,22));
+        System.out.println(b.makeAppointment(3,4,3));
+        System.out.println(b.makeAppointment(2,4,30));
+        b.printPeriod(4);
+
+
+    }}
+
+
+
 
